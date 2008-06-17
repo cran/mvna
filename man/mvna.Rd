@@ -1,6 +1,6 @@
 \name{mvna}
 \alias{mvna}
-%- Also NEED an '\alias' for EACH other topic documented here.
+
 \title{Nelson-Aalen estimator in multistate models }
 \description{
   This function computes the multivariate Nelson-Aalen estimator of
@@ -9,7 +9,7 @@
   the cumulative hazard.
 }
 \usage{
-mvna(data, state.numbers, tra, cens.name, tr.choice = "all")
+mvna(data, state.numbers, tra, cens.name)
 }
 \arguments{
   \item{data}{ A data.frame of the form data.frame(id,from,to,time)
@@ -30,12 +30,8 @@ mvna(data, state.numbers, tra, cens.name, tr.choice = "all")
     transitions within the multistate model. }
   \item{cens.name}{ A character giving the code for censored
     observations in the column 'to' of \code{data}. If there is no
-    censored observations in your data, put 'NA'.}
-  \item{tr.choice}{ A vector of character specifying which transitions
-    are to be computed, \emph{e.g.} c("0 1","0 2") for transitions from
-    state named '0' to state named '1', and from state '0' to state '2'.
-    Default is "all".  }
-}
+    censored observations in your data, put 'NULL'.}
+  }
 \details{
   This functions computes the Nelson-Aalen estimator as described in
   Anderson et al. (1993), along with the two variance estimators
@@ -60,20 +56,23 @@ mvna(data, state.numbers, tra, cens.name, tr.choice = "all")
   \code{time}: The transition times.
 
   The list also contains:
+  \item{time}{All the event times.}
+  \item{nrisk}{A matrix giving the number at individual at risk in the
+    transient states just before an event.}
+  \item{nev}{An array which gives the number of transitions at each
+    event times.}
+  \item{ncens}{A matrix giving the number a censored observations at each
+  event times.}
   \item{state.numbers}{ The same as in the function call.}
   \item{cens.name}{The same as in the function call.}
-  \item{n.cens}{Number of censored observations}
-  }
+}
 \note{
   The variance estimator (4.1.6) may overestimate the true variance, and
   the one defined eq. (4.1.7) may underestimate the true variance (see
   Klein (1991) and Andersen et al. (example IV.1.1, 1993)), especially
   with small sample set. Therefore, a warning will be produced for
   risk-sets smaller than 5. Klein (1991) recommends the use of the variance
-  estimator of eq. (4.1.6) because he found it less biased. We suggest
-  that bootstrapping this variance estimator may improve on this
-  problem (see \code{\link{sir.cont}} for an example of
-  bootstrap).
+  estimator of eq. (4.1.6) because he found it less biased.
   }
 \references{Andersen, P.K., Borgan, O., Gill, R.D. and Keiding,
   N. (1993). \emph{Statistical models based on counting
@@ -84,14 +83,25 @@ mvna(data, state.numbers, tra, cens.name, tr.choice = "all")
   Journal of Statistics}, 18:333--340, 1991.}
 
 \author{Arthur Allignol, \email{arthur.allignol@fdm.uni-freiburg.de}}
-\seealso{ \code{\link{xyplot.mvna}},\code{\link{sir.adm}},\code{\link{sir.cont}}}
+\seealso{\code{\link{sir.adm}},\code{\link{sir.cont}}}
 \examples{
 data(sir.cont)
 
+# Modification for patients entering and leaving a state
+# at the same date
+sir.cont <- sir.cont[order(sir.cont$id, sir.cont$time), ]
+for (i in 2:nrow(sir.cont)) {
+  if (sir.cont$id[i]==sir.cont$id[i-1]) {
+    if (sir.cont$time[i]==sir.cont$time[i-1]) {
+      sir.cont$time[i-1] <- sir.cont$time[i-1] - 0.5
+    }
+  }
+}
+
 # Matrix of logical giving the possible transitions
-tra <- matrix(ncol=3,nrow=3,TRUE)
-tra[3,1:2] <- FALSE
-diag(tra) <- FALSE # doesn't change much
+tra <- matrix(ncol=3,nrow=3,FALSE)
+tra[1, 2:3] <- TRUE
+tra[2, c(1, 3)] <- TRUE
 
 # Computation of the Nelson-Aalen estimates
 na <- mvna(sir.cont,c("0","1","2"),tra,"cens")
@@ -99,9 +109,6 @@ na <- mvna(sir.cont,c("0","1","2"),tra,"cens")
 # plot
 xyplot(na)
 
-### See the example in the data sets help pages
-### help(sir.adm) and help(sir.cont)
-### for more detailed examples
 }
   
 

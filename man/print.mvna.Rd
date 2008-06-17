@@ -11,7 +11,7 @@
 \usage{
 \method{print}{mvna}(x, \dots)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{x}{An object of class 'mvna'}
   \item{\dots}{Other arguments for print method }

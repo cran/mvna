@@ -1,6 +1,6 @@
 \name{xyplot.mvna}
 \alias{xyplot.mvna}
-%- Also NEED an '\alias' for EACH other topic documented here.
+
 \title{ Panel plots for object of class 'mvna' }
 \description{
   xyplot function for objects of class 'mvna'. Estimates of the
@@ -15,7 +15,7 @@
               conf.int = TRUE, ci.type = c(1, 2), level = 0.05,
               col = c(1, 1, 1), lty = c(1, 3, 3), ...)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{x}{ An object of class 'mvna'. }
   \item{data}{\emph{Useless}. Just to avoid warnings while
@@ -58,6 +58,6 @@
   Deepayan Sarkar (2006). lattice: Lattice Graphics. R package version
     0.13-8.}
 \author{Arthur Allignol, \email{arthur.allignol@fdm-freiburg.de} }
-\seealso{ \code{\link{mvna}}, \code{\link{sir.adm}},\code{\link{sir.cont}}   }
+\seealso{\code{\link[lattice]{xyplot}}, \code{\link{mvna}}, \code{\link{sir.adm}},\code{\link{sir.cont}}   }
 
 \keyword{ device }

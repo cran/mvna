@@ -5,7 +5,7 @@ function(x,data=NULL,xlab="Time",ylab="Cumulative Hazard",
   if (!inherits(x,"mvna")) {
     stop("Argument 'x' must be of class 'mvna'")
   }
-  if (tr.choice[1]=="all") { tr.choice <- names(x[1:(length(x)-3)]) }
+  if (tr.choice[1]=="all") { tr.choice <- names(x[1:(length(x)-7)]) }
   if (!all(tr.choice %in% names(x))) {
     stop("Argument 'tr.choice' and the possible transitions must match")}
   if (!(length(ci.type)==2 & ci.type[1] %in% c(1,2) & ci.type[2] %in% c(1,2,3)))

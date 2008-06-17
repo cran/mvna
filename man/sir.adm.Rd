@@ -1,4 +1,4 @@
-\name{sit.adm}
+\name{sir.adm}
 \docType{data}
 \alias{sir.adm}
 \title{Pneumonia on admission in intenive care unit patients}
@@ -34,7 +34,6 @@ dat.sir <- data.frame(id,from,to,time=times)
 
 # Possible transitions
 tra <- matrix(ncol=4,nrow=4,FALSE)
-diag(tra) <- TRUE
 tra[1:2,3:4] <- TRUE
 
 na.pneu <- mvna(dat.sir,c("0","1","2","3"),

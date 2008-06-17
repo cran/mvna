@@ -8,7 +8,7 @@
 \usage{
 \method{predict}{mvna}(object, times, tr.choice, ...)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{object}{ An object of class 'mvna' }
   \item{times}{ Time-points at which you want the estimates }
@@ -37,9 +37,21 @@
 \examples{
 data(sir.cont)
 
+# Modification for patients entering and leaving a state
+# at the same date
+sir.cont <- sir.cont[order(sir.cont$id, sir.cont$time), ]
+for (i in 2:nrow(sir.cont)) {
+  if (sir.cont$id[i]==sir.cont$id[i-1]) {
+    if (sir.cont$time[i]==sir.cont$time[i-1]) {
+      sir.cont$time[i-1] <- sir.cont$time[i-1] - 0.5
+    }
+  }
+}
+
 # Matrix of logical giving the possible transitions
-tra <- matrix(ncol=3,nrow=3,TRUE)
-tra[3,1:2] <- FALSE
+tra <- matrix(ncol=3,nrow=3,FALSE)
+tra[1, 2:3] <- TRUE
+tra[2, c(1, 3)] <- TRUE
 
 # Computation of the Nelson-Aalen estimates
 na <- mvna(sir.cont,c("0","1","2"),tra,"cens")

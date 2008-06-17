@@ -47,8 +47,20 @@ data(sir.cont)
 data(sir.cont)
 
 # Matrix of possible transitions
-tra <- matrix(ncol=3,nrow=3,TRUE)
-tra[3,1:2] <- FALSE
+tra <- matrix(ncol=3,nrow=3,FALSE)
+tra[1, 2:3] <- TRUE
+tra[2, c(1, 3)] <- TRUE
+
+# Modification for patients entering and leaving a state
+# at the same date
+sir.cont <- sir.cont[order(sir.cont$id, sir.cont$time), ]
+for (i in 2:nrow(sir.cont)) {
+  if (sir.cont$id[i]==sir.cont$id[i-1]) {
+    if (sir.cont$time[i]==sir.cont$time[i-1]) {
+      sir.cont$time[i-1] <- sir.cont$time[i-1] - 0.5
+    }
+  }
+}
 
 # Computation of the Nelson-Aalen estimates
   na.cont <- mvna(sir.cont,c("0","1","2"),tra,"cens")
@@ -61,30 +73,5 @@ tra[3,1:2] <- FALSE
        scales=list(alternating=1),xlab="Days",
        ylab="Nelson-Aalen estimates")
 
-## Not run: 
-  # Bootstrap
-  # Bootstrap statistics. Works for one transition at a time
-  na.boot <- function(data,index,state.names,tra,cens.name,ctr) {
-  temp <- mvna(data[index,],state.names,tra,
-               cens.name,tr.choice=ctr)[[ctr]]$var1
-  return(temp)
-  }
-
-  # Matrix of possible transitions
-  tra <- matrix(ncol=3,nrow=3,TRUE)
-  tra[3,1:2] <- FALSE
-
-  # Test
-  na.boot(sir.cont,1:nrow(sir.cont),
-          c("0","1","2"),tra,"cens","0 2")
-
-  library(boot)
-  nb <- 10 ## nb=1000
-  var.boot <- boot(sir.cont,na.boot,nb,
-                   state.names=c("0","1","2"),
-                   tra=tra,cens.name="cens",ctr="0 2",sim="permutation")
-
-  m <- apply(var.boot$t,MARGIN=2,FUN=mean)
-## End(Not run)
 }
 \keyword{datasets}
