@@ -9,11 +9,13 @@
 \usage{data(sir.adm)}
 \format{
   The data contains 765 rows and 4 variables:
+  \describe{
   \item{id:}{Randomly generated patient id}
   \item{pneu:}{Pneumonia indicator. 0: No pneumonia, 1: Pneumonia}
   \item{status}{Status indicator. 0: censored observation, 1:
     discharged, 2: dead}
   \item{time:}{Follow-up time in day}
+  }
 }
 \source{
   Beyersmann, J., Gastmeier, P., Grundmann, H.,

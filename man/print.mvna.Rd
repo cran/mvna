@@ -18,7 +18,7 @@
 }
 
 \value{
- No value returned
+ \code{x} with the invisible flag set
 }
 \author{ Arthur Allignol, \email{arthur.allignol@fdm-freiburg.de} }
 \seealso{ \code{\link{mvna}} }

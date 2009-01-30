@@ -85,7 +85,7 @@
   and \code{just} arguments permit to adjust the way the plots are displayed.
 }
 \value{
-  No value returned.
+  \code{object} with the invisible flag set
 }
 \author{Arthur Allignol, \email{arthur.allignol@fdm.uni-freiburg.de}}
 \note{

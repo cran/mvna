@@ -8,9 +8,9 @@
 }
 \usage{
 \method{plot}{mvna}(x, tr.choice, xlab = "Time",
-ylab = "Nelson-Aalen estimates", legend = TRUE, curvlab, locator =
-FALSE, coord, col, lty,
-xlim, ylim, ...)
+ylab = "Nelson-Aalen estimates",
+col, lty, xlim, ylim, legend = TRUE,
+legend.pos, curvlab, legend.bty = "n", ...)
 }
 
 \arguments{
@@ -20,25 +20,24 @@ xlim, ylim, ...)
     the cumulative transition hazards are plotted}
   \item{xlab}{x-axis label. Default is "Time"}
   \item{ylab}{y-axis label. Default is "Nelson-Aalen estimates"}
-  \item{legend}{A logical specifying if a legend should be added}
-  \item{curvlab}{If legeng=TRUE, a character or expression vector to
-    appear in the legend. Default is the name of the transitions}
-  \item{locator}{A logical indicating whether use \code{locator} to put
-    the legend}
-  \item{coord}{If locator=FALSE, a vector of length 2 indicating the
-    coordinates of the legend}
   \item{col}{Vector of colour. Default is black}
   \item{lty}{Vector of line type. Default is 1:number of transitions}
   \item{xlim}{Limits of x-axis for the plot}
   \item{ylim}{Limits of y-axis for the plot}
-  \item{\dots}{Additional arguments for plot}
+  \item{legend}{A logical specifying if a legend should be added}
+  \item{legend.pos}{A vector giving the legend's position. See
+    \code{\link{legend}} for further details}
+  \item{curvlab}{A character or expression vector to appear in the
+    legend. Default is the name of the transitions}
+  \item{legend.bty}{Box type for the legend}
+  \item{\dots}{Further arguments for plot}
 }
 \details{
   This plot method permits to draw several cumulative transition hazards
   on the same panel.
 }
 \value{
-  No value returned
+  \code{x} with the invisible flag set
 }
 
 \author{Arthur Allignol \email{arthur.allignol@fdm.uni-freiburg.de}}
@@ -65,4 +64,4 @@ na.cont <- mvna(sir.cont,c("0","1","2"),tra,"cens")
 
 plot(na.cont, tr.choice=c("0 2", "1 2"))
 }
-\keyword{device}
+\keyword{hplot}

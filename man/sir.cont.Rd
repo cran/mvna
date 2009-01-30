@@ -11,15 +11,20 @@ data(sir.cont)
 }
 \format{
   A data frame with 1161 rows and 4 columns:
+  \describe{
   \item{id:}{Randomly generated patient id}
   \item{from:}{State from which a transition occurs}
   \item{to:}{State to which a transition occurs}
   \item{time:}{Time when a transition occurs}
-  
+  }
+
   The possible states are:
-  \item{0:}{No ventilation}
-  \item{1:}{Ventilation}
-  \item{2:}{End of stay}
+  
+  0: No ventilation
+  
+  1: Ventilation
+  
+  2: End of stay.
 
   And \code{cens} stands for censored observations.
 }

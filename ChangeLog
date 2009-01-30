@@ -1,0 +1,9 @@
+29.1.2009:
+	- Modification of the documentation 
+	w.r.t new parser
+	- changes in the plot (new arguments) and xyplot (internal) method
+	- in mvna: state.numbers -> state.names
+
+15.9.2008:
+	- Improvement on computation time (taking advantage on the work on etm)
+

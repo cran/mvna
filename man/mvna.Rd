@@ -9,7 +9,7 @@
   the cumulative hazard.
 }
 \usage{
-mvna(data, state.numbers, tra, cens.name)
+mvna(data, state.names, tra, cens.name)
 }
 \arguments{
   \item{data}{ A data.frame of the form data.frame(id,from,to,time)
@@ -25,7 +25,7 @@ mvna(data, state.numbers, tra, cens.name)
   This data.frame is transition-oriented, \emph{i.e.} it contains one
   row per transition, and possibly several rows per patient. Specifying
   an entry and exit time permits to take into account left-truncation.}
-  \item{state.numbers}{ A vector of character giving the states names. }
+  \item{state.names}{ A vector of character giving the states names. }
   \item{tra}{A quadratic matrix of logical values describing the possible
     transitions within the multistate model. }
   \item{cens.name}{ A character giving the code for censored
@@ -63,7 +63,7 @@ mvna(data, state.numbers, tra, cens.name)
     event times.}
   \item{ncens}{A matrix giving the number a censored observations at each
   event times.}
-  \item{state.numbers}{ The same as in the function call.}
+  \item{state.names}{ The same as in the function call.}
   \item{cens.name}{The same as in the function call.}
 }
 \note{
