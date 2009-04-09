@@ -1,0 +1,16 @@
+citHeader("To cite package 'mvna' in publications use:")
+
+citEntry(entry = "Article",
+	 title = "mvna: An R Package for the Nelson-Aalen Estimator in
+                 Multistate Models",
+	 author = personList(as.person("Arthur Allignol"),
+	 		     as.person("Jan Beyersmann"),
+			     as.person("Martin Schumacher")),
+         year = "2008",
+	 journal = "R news",
+	 volume = "8",
+	 number = "2",
+	 pages = "48--50",
+	 textVersion = paste("Allignol, A., Beyersmann, J. and Schumacher, M. (2008).",
+	 	             "mvna: An R Package for the Nelson-Aalen Estimator in Multistate Models",
+			     "R News, 8(2):48--50"))
