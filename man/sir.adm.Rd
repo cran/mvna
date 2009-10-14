@@ -8,7 +8,7 @@
 }
 \usage{data(sir.adm)}
 \format{
-  The data contains 765 rows and 4 variables:
+  The data contains 747 rows and 4 variables:
   \describe{
   \item{id:}{Randomly generated patient id}
   \item{pneu:}{Pneumonia indicator. 0: No pneumonia, 1: Pneumonia}

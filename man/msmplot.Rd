@@ -79,7 +79,7 @@
   function.
 
   The cumulative hazards plots are positioned by the user using the
-  \code{\link[gridBase]{grid.locator}} function. One has just to click
+  \code{\link[grid]{grid.locator}} function. One has just to click
   where he wants the plot to be. The order of the transitions is
   displayed on the prompt. The \code{width}, \code{height}, \code{angle}
   and \code{just} arguments permit to adjust the way the plots are displayed.
