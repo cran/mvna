@@ -51,3 +51,4 @@ xyplot(na.pneu,tr.choice=c("0 2","1 2","0 3","1 3"),
        ylab="Nelson-Aalen esimates")
 }
 \keyword{datasets}
+\keyword{survival}

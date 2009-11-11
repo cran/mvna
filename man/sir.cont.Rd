@@ -36,7 +36,7 @@ data(sir.cont)
   as a transcient state in an illness-death model. 
 
   The data frame is directly formated to be used with the \code{mvna}
-  function, i.e. it is transition-oriented with one row per transition.
+  function, i.e., it is transition-oriented with one row per transition.
 }
 
 \source{
@@ -80,3 +80,4 @@ for (i in 2:nrow(sir.cont)) {
 
 }
 \keyword{datasets}
+\keyword{survival}

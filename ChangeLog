@@ -1,16 +1,43 @@
+2009-11-6 Arthur Allignol <arthur.allignol@fdm.uni-freiburg.de>
+
+	* DESCRIPTION: new version 1.2
+
+	* risk_set_mvna: is now written in C instead of C++.	
+	The algotithm has not been modified
+
+	* mvna: Some name changes in the return value
+	
+	* mvna: id argument in the data set doesn't need to be numeric
+	anymore.
+
+	* summary.mvna: New function
+
+	* lines.mvna: New function
+
+	* print.summary.mvna: New function
+
+	* plot.mvna: Can display confidence intervals
+
+	* plot.mvna, prdict.mvna, xyplot.mvna: New arguments ci.fun and var.type
+	ci.type argument is deprecated in xyplot.mvna
+
+	* All methods that needs to compute CIs: Now calling summary.mvna
+	to obtain the CIs
+	
+	
 2009-4-9 Arthur Allignol <arthur.allignol@fdm.uni-freiburg.de>
 
-* New data set abortion
-* New example in mvna help page
+	* abortion: New data set
 	
 2009-1-29 Arthur Allignol <arthur.allignol@fdm.uni-freiburg.de>
 	
-* modification of the documentation 
-w.r.t new parser	
-* changes in the plot (new arguments) and xyplot (internal) method
-* in mvna(): argument state.numbers changed for state.names
+	* modification of the documentation 
+	w.r.t new parser	
+	
+	* changes in the plot (new arguments) and xyplot (internal) method
+	
+	* in mvna(): argument state.numbers changed for state.names
 
 2008-9-15 Arthur Allignol <arthur.allignol@fdm.uni-freiburg.de>
 
-* change in mvna to improve computation time
-
+	* change in mvna to improve computation time

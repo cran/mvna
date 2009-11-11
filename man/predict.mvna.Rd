@@ -3,37 +3,47 @@
 \title{ Calculates Nelson-Aalen estimates at specified time-points }
 \description{
   This function gives the Nelson-Aalen estimates at time-points
-  specified by the user, along with the two variance estimators.
+  specified by the user.
 }
 \usage{
-\method{predict}{mvna}(object, times, tr.choice, ...)
+\S3method{predict}{mvna}(object, times, tr.choice, level = 0.95,
+        var.type = c("aalen", "greenwood"),
+        ci.fun = c("log", "linear", "arcsin"), ...)
 }
 
 \arguments{
-  \item{object}{ An object of class 'mvna' }
-  \item{times}{ Time-points at which you want the estimates }
-  \item{tr.choice}{ A vector of character giving for which transitions
-    you want estimates. By default, the function will give the
-    Nelson-Aalen estimates for all the transitions.}
+  \item{object}{An object of class \code{mvna}}
+  \item{times}{Time-points at which one wants the estimates}
+  \item{tr.choice}{A vector of character giving for which transitions
+    one wants estimates. By default, the function will give the
+    Nelson-Aalen estimates for all transitions.}
+  \item{level}{Level of the pointwise confidence intervals. Default is
+    0.95.}
+  \item{var.type}{Variance estimator displayed and used to compute the
+    pointwise confidence intervals. One of "aalen" or "greenwood". Default
+    is "aalen".}
+  \item{ci.fun}{Which transformation to apply for the confidence
+  intervals. Choices are "linear", "log" or "arcsin". Default is "log".}
   \item{\ldots}{Other arguments to predict}
 }
 \value{
    Returns a list named after the possible transitions, \emph{e.g.} if we
   define a multistate model with two possible transitions: from state 0 to
   state 1, and from state 0 to state 2, the returned list will have two
-  parts named "0 1" and "0 2". Each part contains a data.frame with columns:
-  \item{na}{Nelson-Aalen estimates at each transition times.}
-  \item{var1}{Variance estimator given in eq. (4.1.6) of Andersen et
-    al. (1993).}
-  \item{var2}{Variance estimator given in eq. (4.1.7) of Andersen et
-    al. (1993).}
-  \item{time}{The given timepoints.}
+  parts named "0 1" and "0 2". Each part contains a data.frame with
+  columns:
+  \item{times}{Time points specified by the user.}
+  \item{na}{Nelson-Aalen estimates at the specified times.}
+  \item{var.aalen or var.greenwood}{Depending on what was specified in
+    \code{var.type}.}
+  \item{lower}{Lower bound of the pointwise confidence intervals.}
+  \item{upper}{Upper bound.}
 }
 \references{ Andersen, P.K., Borgan, O., Gill, R.D. and Keiding,
   N. (1993). \emph{Statistical models based on counting
     processes}. Springer Series in Statistics. New York, NY: Springer.} 
 \author{ Arthur Allignol, \email{arthur.allignol@fdm.uni-freiburg.de} }
-\seealso{ \code{\link{mvna}}, \code{\link{sir.adm}}, \code{\link{sir.cont}} }
+\seealso{\code{\link{mvna}}, \code{\link{summary.mvna}}}
 \examples{
 data(sir.cont)
 
@@ -59,4 +69,4 @@ na <- mvna(sir.cont,c("0","1","2"),tra,"cens")
 # Using predict
 predict(na,times=c(1,5,10,15))
 }
-\keyword{misc}
+\keyword{survival}

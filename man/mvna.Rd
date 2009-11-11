@@ -8,6 +8,7 @@
   for each possible transition, it computes an estimate of
   the cumulative hazard.
 }
+
 \usage{
 mvna(data, state.names, tra, cens.name)
 }
@@ -29,50 +30,48 @@ mvna(data, state.names, tra, cens.name)
   \item{tra}{A quadratic matrix of logical values describing the possible
     transitions within the multistate model. }
   \item{cens.name}{ A character giving the code for censored
-    observations in the column 'to' of \code{data}. If there is no
-    censored observations in your data, put 'NULL'.}
-  }
+    observations in the column \code{to} of \code{data}. If there is no
+    censored observations in your data, put \code{NULL}.}
+}
+
 \details{
   This functions computes the Nelson-Aalen estimator as described in
   Anderson et al. (1993), along with the two variance estimators
   described in eq. (4.1.6) and (4.1.7) of Andersen et al. (1993) at each
   transition time.
 }
+
 \value{
   Returns a list named after the possible transitions, \emph{e.g.} if we
   define a multistate model with two possible transitions: from state 0 to
   state 1, and from state 0 to state 2, the returned list will have two
   parts named "0 1" and "0 2". Each part contains a data.frame with
   columns:
-  
-  \code{na}: Nelson-Aalen estimates at each transition times.
-  
-  \code{var1}: Variance estimator given in eq. (4.1.6) of Andersen et
-  al. (1993).
-  
-  \code{var2}: Variance estimator given in eq. (4.1.7) of Andersen et
-  al. (1993).
-  
-  \code{time}: The transition times.
-
+  \item{na}{Nelson-Aalen estimates at each transition times.}
+  \item{var.aalen}{Variance estimator given in eq. (4.1.6) of Andersen et
+    al. (1993).}
+  \item{var.greenwood}{Variance estimator given in eq. (4.1.7) of Andersen et
+    al. (1993).}
+  \item{time}{The transition times.}
   The list also contains:
   \item{time}{All the event times.}
-  \item{nrisk}{A matrix giving the number at individual at risk in the
+  \item{n.risk}{A matrix giving the number at individual at risk in the
     transient states just before an event.}
-  \item{nev}{An array which gives the number of transitions at each
+  \item{n.event}{An array which gives the number of transitions at each
     event times.}
-  \item{ncens}{A matrix giving the number a censored observations at each
+  \item{n.cens}{A matrix giving the number a censored observations at each
   event times.}
   \item{state.names}{ The same as in the function call.}
   \item{cens.name}{The same as in the function call.}
+  \item{trans}{A data frame, with columns \code{from} and \code{to}, that gives
+  the possible transitions.}
 }
 \note{
   The variance estimator (4.1.6) may overestimate the true variance, and
   the one defined eq. (4.1.7) may underestimate the true variance (see
   Klein (1991) and Andersen et al. (example IV.1.1, 1993)), especially
-  with small sample set. Therefore, a warning will be produced for
-  risk-sets smaller than 5. Klein (1991) recommends the use of the variance
-  estimator of eq. (4.1.6) because he found it less biased.
+  with small sample set. Klein (1991) recommends the use of the variance
+  estimator of eq. (4.1.6, "aalen") because he found it to be less biased.
   }
 \references{Andersen, P.K., Borgan, O., Gill, R.D. and Keiding,
   N. (1993). \emph{Statistical models based on counting

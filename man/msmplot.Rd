@@ -10,16 +10,16 @@
 }
 \usage{
 \S3method{msmplot}{mvna}(object, tr.choice, graph, layout = "dot",
-             recip.edges = "combined", order = "LR", unit = "npc",
-             width, height, just = "center",
-             mgp = c(1.3, 0.4, 0), cex = 0.6,
-             mtext = TRUE, label.plots, side = 3, lcex = 0.9,
-             conf.int = TRUE, level = 0.05, xlab = "Time", ylab = "",
-             ...)
+        recip.edges = "combined", order = "LR", unit = "npc",
+        width, height, just = "center",
+        mgp = c(1.3, 0.4, 0), cex = 0.6,
+        mtext = TRUE, label.plots, side = 3, lcex = 0.9,
+        conf.int = TRUE, level = 0.05, xlab = "Time", ylab = "",
+        ...)
 }
 
 \arguments{
-  \item{object}{An object of class 'mvna'.}
+  \item{object}{An object of class \code{mvna}.}
   \item{tr.choice}{A character vector of the form ("from to", "from to")
     describing the transitions to plot. By default, the estimated
     cumulative hazards are displayed for all transitions.}
@@ -122,4 +122,5 @@ msmplot(temp, width = c(0.25, 0.25, 0.2, 0.25),
         height = c(0.2, 0.2, 0.18, 0.2), lcex=0.8)
 }
 }
-\keyword{device}
+\keyword{hplot}
+\keyword{survival}
