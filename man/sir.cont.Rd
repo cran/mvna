@@ -10,12 +10,14 @@
 data(sir.cont)
 }
 \format{
-  A data frame with 1161 rows and 4 columns:
+  A data frame with 1141 rows and 6 columns:
   \describe{
   \item{id:}{Randomly generated patient id}
   \item{from:}{State from which a transition occurs}
   \item{to:}{State to which a transition occurs}
   \item{time:}{Time when a transition occurs}
+  \item{age:}{Age at inclusion}
+  \item{sex:}{Sex. \code{F} for female and \code{M} for male}
   }
 
   The possible states are:

@@ -15,6 +15,8 @@
   \item{status}{Status indicator. 0: censored observation, 1:
     discharged, 2: dead}
   \item{time:}{Follow-up time in day}
+  \item{age:}{Age at inclusion}
+  \item{sex:}{Sex. \code{F} for female and \code{M} for male}
   }
 }
 \source{

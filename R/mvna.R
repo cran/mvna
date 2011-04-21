@@ -44,20 +44,24 @@ mvna <- function(data, state.names, tra, cens.name) {
     t.to <- unlist(t.to)
     trans <- data.frame(from=t.from, to=t.to)
     namen <- paste(trans[, 1], trans[, 2])
+
     ## test on transitions
     test <- unique(paste(data$from, data$to))
     if (!(is.null(cens.name))) {
         ref <- c(paste(trans$from, trans$to), paste(unique(trans$from), cens.name))
+    } else {
+        ref <- paste(trans$from, trans$to)
     }
-    else { ref <- paste(trans$from, trans$to) }
+    ref.wo.cens <- paste(trans$from, trans$to)
     if (!(all(test %in% ref)==TRUE))
         stop("There is undefined transitions in the data set")
     if (sum(as.character(data$from)==as.character(data$to)) > 0)
         stop("Transitions into the same state are not allowed")
-    if (!(all(ref %in% test) == TRUE))
+    if (!(all(ref.wo.cens %in% test) == TRUE))
         warning("You may have specified more possible transitions than actually present in the data")
     
 ### data.frame transformation
+    data$id <- if (is.character(data$id)) as.factor(data$id) else data$id
     data$from <- as.factor(data$from)
     data$to <- as.factor(data$to)
     if (!(is.null(cens.name))) {

@@ -1,3 +1,12 @@
+2011-21-4 Arthur Allignol <arthur.allignol@fdm.uni-freiburg.de>
+
+	* DESCRIPTION: new version 1.2-1
+
+	* data sets: 2 covariates added
+
+	* mvna: Fix for a spurious warning when no censoring.
+	id argument can now be a factor or character vector
+
 2009-11-6 Arthur Allignol <arthur.allignol@fdm.uni-freiburg.de>
 
 	* DESCRIPTION: new version 1.2
