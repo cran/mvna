@@ -77,6 +77,9 @@ mvna(data, state.names, tra, cens.name)
   N. (1993). \emph{Statistical models based on counting
     processes}. Springer Series in Statistics. New York, NY: Springer.
 
+  Beyersmann J, Allignol A, Schumacher M: Competing Risks and Multistate
+  Models with R (Use R!), Springer Verlag, 2012 (Use R!)
+  
   Klein, J.P. Small sample moments of some estimators of the variance
   of the Kaplan-Meier and Nelson-Aalen estimators. \emph{Scandinavian
   Journal of Statistics}, 18:333--340, 1991.}
