@@ -42,6 +42,8 @@ tra[1:2,3:4] <- TRUE
 
 na.pneu <- mvna(dat.sir,c("0","1","2","3"),
                 tra,"cens")
+
+if(require("lattice")) {
 xyplot(na.pneu,tr.choice=c("0 2","1 2","0 3","1 3"),
        aspect=1,strip=strip.custom(bg="white",
        factor.levels=c("No pneumonia on admission -- Discharge",
@@ -51,6 +53,7 @@ xyplot(na.pneu,tr.choice=c("0 2","1 2","0 3","1 3"),
        par.strip.text=list(cex=0.9)),
        scales=list(alternating=1),xlab="Days",
        ylab="Nelson-Aalen esimates")
+}
 }
 \keyword{datasets}
 \keyword{survival}

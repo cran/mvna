@@ -54,7 +54,7 @@
   No value returned
 }
 
-\author{Arthur Allignol \email{arthur.allignol@fdm.uni-freiburg.de}}
+\author{Arthur Allignol \email{arthur.allignol@uni-ulm.de}}
 \seealso{\code{\link{mvna}}}
 \examples{
 data(sir.cont)

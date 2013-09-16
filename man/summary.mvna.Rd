@@ -46,7 +46,7 @@
   \item{n.event}{Number of transitions at time \eqn{t}{t}.}
 }
 \author{
-  Arthur Allignol, \email{arthur.allignol@fdm.uni-freiburg.de}
+  Arthur Allignol, \email{arthur.allignol@uni-ulm.de}
 }
 \seealso{
   \code{\link{mvna}}

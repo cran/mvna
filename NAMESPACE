@@ -1,5 +1,5 @@
-import(lattice)
 export(mvna, msmplot, summary.mvna)
+importFrom(lattice, xyplot)
 S3method(print, mvna)
 S3method(xyplot, mvna)
 S3method(predict, mvna)

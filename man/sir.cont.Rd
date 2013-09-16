@@ -72,6 +72,7 @@ for (i in 2:nrow(sir.cont)) {
 # Computation of the Nelson-Aalen estimates
   na.cont <- mvna(sir.cont,c("0","1","2"),tra,"cens")
 
+if (require("lattice")) {
   xyplot(na.cont,tr.choice=c("0 2","1 2"),aspect=1,
        strip=strip.custom(bg="white",
          factor.levels=c("No ventilation -- Discharge/Death",
@@ -79,7 +80,7 @@ for (i in 2:nrow(sir.cont)) {
          par.strip.text=list(cex=0.9)),
        scales=list(alternating=1),xlab="Days",
        ylab="Nelson-Aalen estimates")
-
+}
 }
 \keyword{datasets}
 \keyword{survival}

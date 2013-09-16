@@ -84,7 +84,7 @@ mvna(data, state.names, tra, cens.name)
   of the Kaplan-Meier and Nelson-Aalen estimators. \emph{Scandinavian
   Journal of Statistics}, 18:333--340, 1991.}
 
-\author{Arthur Allignol, \email{arthur.allignol@fdm.uni-freiburg.de}}
+\author{Arthur Allignol, \email{arthur.allignol@uni-ulm.de}}
 \seealso{\code{\link{sir.adm}},\code{\link{sir.cont}}}
 \examples{
 data(sir.cont)
@@ -109,6 +109,7 @@ tra[2, c(1, 3)] <- TRUE
 na <- mvna(sir.cont,c("0","1","2"),tra,"cens")
 
 # plot
+if (require(lattice))
 xyplot(na)
 
 ### example with left-truncation

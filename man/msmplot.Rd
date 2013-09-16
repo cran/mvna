@@ -87,7 +87,7 @@
 \value{
   \code{object} with the invisible flag set
 }
-\author{Arthur Allignol, \email{arthur.allignol@fdm.uni-freiburg.de}}
+\author{Arthur Allignol, \email{arthur.allignol@uni-ulm.de}}
 \note{
   The \pkg{Rgraphviz} package requires the graphviz software to be
   installed.
