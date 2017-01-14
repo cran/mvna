@@ -121,7 +121,7 @@ mvna <- function(data, state.names, tra, cens.name) {
     dimnames(nev) <- list(state.names, state.names, times)
     
     est <- lapply(1:nrow(trans), function(i) {
-        ## on enlève les temps ou nrisk == 0
+        ## on emleve les temps ou nrisk == 0
         ind <- nrisk[, as.character(trans[i, 1])] != 0
         t.nrisk <- nrisk[, as.character(trans[i, 1])][ind]
         t.nev <- nev[as.character(trans[i, 1]), as.character(trans[i, 2]), ][ind]
