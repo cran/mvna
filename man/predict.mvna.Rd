@@ -42,7 +42,7 @@
 \references{ Andersen, P.K., Borgan, O., Gill, R.D. and Keiding,
   N. (1993). \emph{Statistical models based on counting
     processes}. Springer Series in Statistics. New York, NY: Springer.} 
-\author{ Arthur Allignol, \email{arthur.allignol@uni-ulm.de} }
+\author{ Arthur Allignol, \email{arthur.allignol@gmail.com} }
 \seealso{\code{\link{mvna}}, \code{\link{summary.mvna}}}
 \examples{
 data(sir.cont)

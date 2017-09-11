@@ -84,7 +84,7 @@ mvna(data, state.names, tra, cens.name)
   of the Kaplan-Meier and Nelson-Aalen estimators. \emph{Scandinavian
   Journal of Statistics}, 18:333--340, 1991.}
 
-\author{Arthur Allignol, \email{arthur.allignol@uni-ulm.de}}
+\author{Arthur Allignol, \email{arthur.allignol@gmail.com}}
 \seealso{\code{\link{sir.adm}},\code{\link{sir.cont}}}
 \examples{
 data(sir.cont)

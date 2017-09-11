@@ -38,7 +38,7 @@
   No value returned.
 }
 \author{
-  Arthur Allignol, \email{arthur.allignol@uni-ulm.de}
+  Arthur Allignol, \email{arthur.allignol@gmail.com}
 }
 \seealso{
   \code{\link{mvna}}, \code{\link{plot.mvna}}
